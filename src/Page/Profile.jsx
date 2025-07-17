@@ -35,7 +35,7 @@ const Profile = () => {
 
                             const userInfo = { email, name, photo };
                             // console.log(userInfo);
-                            fetch('http://localhost:5000/users/profile', {
+                            fetch('https://coffee-store-server-one-kappa.vercel.app/users/profile', {
                                 method: 'PATCH',
                                 headers: {
                                     'content-type': 'application/json'

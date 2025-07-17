@@ -58,7 +58,7 @@ const Register = () => {
                             lastSignInTime: data?.user?.metadata?.lastSignInTime
                         }
 
-                        fetch('http://localhost:5000/users', {
+                        fetch('https://coffee-store-server-one-kappa.vercel.app/users', {
                             method: "POST",
                             headers: {
                                 'content-type': 'application/json'

@@ -17,7 +17,7 @@ const AddCoffee = () => {
         // console.log(newCoffee);
 
         // send coffee data to the db
-        fetch('http://localhost:5000/coffees', {
+        fetch('https://articret-coffee-shop.vercel.app', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

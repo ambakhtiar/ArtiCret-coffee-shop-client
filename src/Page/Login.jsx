@@ -29,7 +29,7 @@ const Login = () => {
                     lastSignInTime: data?.user?.metadata?.lastSignInTime
                 }
 
-                fetch('http://localhost:5000/users/signin', {
+                fetch('https://coffee-store-server-one-kappa.vercel.app/users/signin', {
                     method: "PATCH",
                     headers: {
                         'content-type': 'application/json'

@@ -32,14 +32,14 @@ const router = createBrowserRouter([
                 element: <PrivateRouter>
                     <CoffeeDetails></CoffeeDetails>
                 </PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
+                loader: ({ params }) => fetch(`https://articret-coffee-shop.vercel.app/${params.id}`)
             },
             {
                 path: '/updateCoffee/:id',
                 element: <PrivateRouter>
                     <UpdateCoffee></UpdateCoffee>
                 </PrivateRouter>,
-                loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
+                loader: ({ params }) => fetch(`https://articret-coffee-shop.vercel.app/${params.id}`)
             },
             {
                 path: '/auth/login',

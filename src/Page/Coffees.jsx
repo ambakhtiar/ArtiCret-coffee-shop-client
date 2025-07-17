@@ -11,7 +11,7 @@ const Coffees = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch('http://localhost:5000/coffees')
+        fetch('https://articret-coffee-shop.vercel.app')
             .then(res => res.json())
             .then(data => {
                 // console.log(data);
