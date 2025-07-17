@@ -2,11 +2,10 @@ import { useContext, useState } from "react";
 import { FcGoogle } from "react-icons/fc";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { toast } from "react-toastify";
 
 
 const Login = () => {
-    const { userLogin } = useContext(AuthContext);
+    const { userLogin, setUser, user } = useContext(AuthContext);
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
@@ -23,6 +22,25 @@ const Login = () => {
         userLogin(email, password)
             .then(data => {
                 console.log(data.user);
+                setUser(data.user);
+
+                const singInInfo = {
+                    email,
+                    lastSignInTime: data?.user?.metadata?.lastSignInTime
+                }
+
+                fetch('http://localhost:5000/users/signin', {
+                    method: "PATCH",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(singInInfo)
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        console.log(data);
+                    })
+
                 navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
@@ -48,6 +66,8 @@ const Login = () => {
                 <input className="btn w-full bg-[#372727] text-white tracking-widest" type="submit" value="Log in" />
             </form>
             <button className="btn btn-outline"><FcGoogle /> Login with Google</button>
+
+            {error && <p className="text-red-600 text-left my-2">{error.code}</p>}
             <p className="text-center my-4">If you haven't acoount, <Link to={'/auth/register'} className="text-blue-700">Register now</Link></p>
         </div>
     );

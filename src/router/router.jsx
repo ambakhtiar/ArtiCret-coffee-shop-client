@@ -7,6 +7,9 @@ import UpdateCoffee from "../Page/UpdateCoffee";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
 import PrivateRouter from "./PrivateRouter";
+import Profile from "../Page/Profile";
+import ErrorPage from "../components/ErrorPage";
+import AddedCoffees from "../Page/AddedCoffees";
 
 
 const router = createBrowserRouter([
@@ -26,12 +29,16 @@ const router = createBrowserRouter([
             },
             {
                 path: '/coffeeDetails/:id',
-                element: <CoffeeDetails></CoffeeDetails>,
+                element: <PrivateRouter>
+                    <CoffeeDetails></CoffeeDetails>
+                </PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
             },
             {
                 path: '/updateCoffee/:id',
-                element: <UpdateCoffee></UpdateCoffee>,
+                element: <PrivateRouter>
+                    <UpdateCoffee></UpdateCoffee>
+                </PrivateRouter>,
                 loader: ({ params }) => fetch(`http://localhost:5000/coffees/${params.id}`)
             },
             {
@@ -41,6 +48,22 @@ const router = createBrowserRouter([
             {
                 path: '/auth/register',
                 element: <Register></Register>
+            },
+            {
+                path: '/profile',
+                element: <PrivateRouter>
+                    <Profile></Profile>
+                </PrivateRouter>
+            },
+            {
+                path: "/userAddedCoffees",
+                element: <PrivateRouter>
+                    <AddedCoffees></AddedCoffees>
+                </PrivateRouter>
+            },
+            {
+                path: "*",
+                element: <ErrorPage></ErrorPage>
             }
         ]
     }

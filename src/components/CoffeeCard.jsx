@@ -44,7 +44,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
     }
 
     return (
-        <div className="flex items-center p-6 gap-4 bg-[#F5F4F1]" >
+        <div className="flex items-center p-6 gap-4 bg-base-300 rounded-xl" >
             <div className="flex-1">
                 <img className="h-60 object-cover" src={photo} alt="" />
             </div>

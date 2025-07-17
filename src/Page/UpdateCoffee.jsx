@@ -78,7 +78,7 @@ const UpdateCoffee = () => {
                         <input type="text" name='photo' className="input w-full" placeholder="Photo URL" defaultValue={coffee.photo} />
                     </fieldset>
 
-                    <input type="submit" className='btn w-full' value="Add Coffee" />
+                    <input type="submit" className='btn w-full' value="Update Coffee" />
                 </form>
             </div>
         </div >

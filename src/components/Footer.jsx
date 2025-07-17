@@ -6,6 +6,7 @@ import { FaDiscord, FaTelegram } from "react-icons/fa";
 import { IoCall } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { FaLocationDot } from "react-icons/fa6";
+import { Link } from "react-router-dom";
 
 const Footer = () => {
     return (
@@ -15,7 +16,7 @@ const Footer = () => {
                     <img className="w-24 h-24 object-contain mb-6" src={logo} alt="" />
                     <div className="footer text-base-content flex flex-col md:flex-row justify-between">
                         <nav>
-                            <h3 className="text-[#331A15] font-Rancho text-3xl">ArtiCret Coffee Shop</h3>
+                            <Link to={'/'} className="text-[#331A15] font-Rancho text-3xl">ArtiCret Coffee Shop</Link>
                             <p className="w-3/4">Always ready to be your friend. Come & Contact with us to share your memorable moments, to share with your best companion.</p>
                             <div className="flex gap-4">
                                 <a href="https://www.wechat.com/" target="_blank" className="link link-hover text-2xl text-[#331A15]"><BsWechat /> </a>

@@ -1,14 +1,19 @@
+import { useContext } from "react";
 import { BiArrowBack } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const AddCoffee = () => {
+    const { user } = useContext(AuthContext);
+
     const handleAddCoffee = e => {
         e.preventDefault();
         const form = e.target;
         const formData = new FormData(form);
         const newCoffee = Object.fromEntries(formData.entries());
+        newCoffee.email = user.email;
         console.log(newCoffee);
 
         // send coffee data to the db
@@ -49,32 +54,32 @@ const AddCoffee = () => {
                     <div className='grid grid-cols-1 md:grid-cols-2 gap-6'>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Name</label>
-                            <input type="text" name='name' className="input w-full" placeholder="Coffee Name" />
+                            <input type="text" name='name' className="input w-full" placeholder="Coffee Name" required />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Quantity</label>
-                            <input type="text" name='quantity' className="input w-full" placeholder="Quantity Name" />
+                            <input type="text" name='quantity' className="input w-full" placeholder="Quantity Name" required />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Supplier</label>
-                            <input type="text" name='supplier' className="input w-full" placeholder="Supplier Name" />
+                            <input type="text" name='supplier' className="input w-full" placeholder="Supplier Name" required />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Taste</label>
-                            <input type="text" name='taste' className="input w-full" placeholder="Taste Name" />
+                            <input type="text" name='taste' className="input w-full" placeholder="Taste Name" required />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Price</label>
-                            <input type="text" name='price' className="input w-full" placeholder="Price per Cup" />
+                            <input type="text" name='price' className="input w-full" placeholder="Price per Cup" required />
                         </fieldset>
                         <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border p-4">
                             <label className="label">Details</label>
-                            <input type="text" name='details' className="input w-full" placeholder="Details Name" />
+                            <input type="text" name='details' className="input w-full" placeholder="Details Name" required />
                         </fieldset>
                     </div>
                     <fieldset className="fieldset bg-base-200 border-base-300 rounded-box border my-6 p-4">
                         <label className="label">Photo</label>
-                        <input type="text" name='photo' className="input w-full" placeholder="Photo URL" />
+                        <input type="text" name='photo' className="input w-full" placeholder="Photo URL" required />
                     </fieldset>
 
                     <input type="submit" className='btn w-full' value="Add Coffee" />
