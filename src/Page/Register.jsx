@@ -48,7 +48,7 @@ const Register = () => {
             .then(data => {
                 userUpdateInfo({ displayName: name, photoURL: photo })
                     .then(() => {
-                        console.log(data.user);
+                        // console.log(data.user);
                         setUser(data.user);
                         navigate('/');
 
@@ -67,15 +67,15 @@ const Register = () => {
                         })
                             .then(res => res.json())
                             .then(data => {
-                                console.log(data);
+                                // console.log(data);
                             })
                     })
                     .catch(error => {
-                        console.log(error);
+                        // console.log(error);
                     })
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(error);

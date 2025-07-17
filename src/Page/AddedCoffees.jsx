@@ -13,7 +13,7 @@ const AddedCoffees = () => {
         fetch(`http://localhost:5000/coffees?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 setCoffees(data);
             })
     }, [])

@@ -9,7 +9,7 @@ const Login = () => {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
     const location = useLocation();
-    console.log(location);
+    // console.log(location);
 
     const handleLogin = e => {
         e.preventDefault();
@@ -21,7 +21,7 @@ const Login = () => {
 
         userLogin(email, password)
             .then(data => {
-                console.log(data.user);
+                // console.log(data.user);
                 setUser(data.user);
 
                 const singInInfo = {
@@ -38,13 +38,13 @@ const Login = () => {
                 })
                     .then(res => res.json())
                     .then(data => {
-                        console.log(data);
+                        // console.log(data);
                     })
 
                 navigate(`${location.state ? location.state : '/'}`);
             })
             .catch(error => {
-                console.log(error);
+                // console.log(error);
                 const errorCode = error.code;
                 const errorMessage = error.message;
                 setError(error);

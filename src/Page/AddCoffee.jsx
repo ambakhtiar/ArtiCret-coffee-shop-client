@@ -14,7 +14,7 @@ const AddCoffee = () => {
         const formData = new FormData(form);
         const newCoffee = Object.fromEntries(formData.entries());
         newCoffee.email = user.email;
-        console.log(newCoffee);
+        // console.log(newCoffee);
 
         // send coffee data to the db
         fetch('http://localhost:5000/coffees', {
@@ -26,7 +26,7 @@ const AddCoffee = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.insertedId) {
                     Swal.fire({
                         title: "Succesfully",

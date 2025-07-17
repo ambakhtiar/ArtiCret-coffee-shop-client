@@ -10,7 +10,7 @@ const UpdateCoffee = () => {
         const form = e.target;
         const formData = new FormData(form);
         const updateCoffee = Object.fromEntries(formData.entries());
-        console.log(updateCoffee);
+        // console.log(updateCoffee);
 
         fetch(`http://localhost:5000/coffees/${coffee._id}`, {
             method: 'PUT',
@@ -22,7 +22,7 @@ const UpdateCoffee = () => {
         )
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
                         title: "Succesfully",

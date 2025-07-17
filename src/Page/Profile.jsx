@@ -26,7 +26,7 @@ const Profile = () => {
                 if (result.isConfirmed) {
                     userUpdateInfo({ displayName: name, photoURL: photo })
                         .then(() => {
-                            console.log(user);
+                            // console.log(user);
                             setUser({
                                 ...user,
                                 displayName: name,
@@ -34,7 +34,7 @@ const Profile = () => {
                             });
 
                             const userInfo = { email, name, photo };
-                            console.log(userInfo);
+                            // console.log(userInfo);
                             fetch('http://localhost:5000/users/profile', {
                                 method: 'PATCH',
                                 headers: {
@@ -44,7 +44,7 @@ const Profile = () => {
                             })
                                 .then(res => res.json())
                                 .then(data => {
-                                    console.log(data);
+                                    // console.log(data);
                                     if (data.modifiedCount > 0) {
                                         Swal.fire("Saved!", "", "success");
                                     }
