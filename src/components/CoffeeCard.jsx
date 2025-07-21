@@ -21,7 +21,7 @@ const CoffeeCard = ({ coffee, coffees, setCoffees }) => {
         }).then((result) => {
             if (result.isConfirmed) {
                 // Delete from DB
-                fetch(`https://articret-coffee-shop.vercel.app/${id}`, {
+                fetch(`https://articret-coffee-shop.vercel.app/coffees/${id}`, {
                     method: 'DELETE'
                 })
                     .then(res => res.json())

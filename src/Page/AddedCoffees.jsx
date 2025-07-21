@@ -10,7 +10,7 @@ const AddedCoffees = () => {
     const [coffees, setCoffees] = useState([]);
 
     useEffect(() => {
-        fetch(`https://articret-coffee-shop.vercel.app?email=${user.email}`)
+        fetch(`https://articret-coffee-shop.vercel.app/coffees?email=${user.email}`)
             .then(res => res.json())
             .then(data => {
                 // console.log(data);

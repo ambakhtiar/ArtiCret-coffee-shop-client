@@ -11,10 +11,10 @@ const Coffees = () => {
     const { user } = useContext(AuthContext);
 
     useEffect(() => {
-        fetch('https://articret-coffee-shop.vercel.app')
+        fetch('https://articret-coffee-shop.vercel.app/coffees')
             .then(res => res.json())
             .then(data => {
-                // console.log(data);
+                console.log(data);
                 setCoffees(data);
             })
     }, [])
